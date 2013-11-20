@@ -1,0 +1,86 @@
+extends layout
+
+block body
+
+  .row-fluid.navbar
+    .navbar-inner
+      a.brand(href='#') Hello, World!
+      ul.nav
+        li.active: a(href='#') Home
+        li: a(href='#') Link
+        li: a(href='#') Link
+        form.navbar-form.pull-left
+          #cp1.input-append.color(data-color='rgb(255, 146, 180)', data-color-format='rgb')
+            input.span2(type='text', value='')
+            span.add-on: i(style='background-color: rgb(255, 146, 180)')
+
+  .row-fluid
+
+    #sidebar.span2
+      // Sidebar content
+      #accordion2.accordian
+        .accordion-group
+          .accordion-heading
+            a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseOne')
+              | Collapsible Group Item #1
+          #collapseOne.accordion-body.collapse.in
+            #accordion-inner
+              ul.tree
+                li
+                  a.tree-toggle(href='#', role='branch', data-toggle='branch', data-value='Bootstrap_Tree')
+                    | Bootstrap Tree
+                  ul.branch.in
+                    li: a#nut(href='#', role='leaf') Docs
+                    li: a(href='#', role='leaf') Examples
+                    li: a(href='#', role='leaf') Credits
+                    li: a(href='http://www.cutterscrossing.com', role='leaf') Cutter's Crossing
+                    li: a(href='http://twitter.github.com/bootstrap', role='leaf') Bootstrap
+                li: a.tree-toggle.closed(href='htmlexample.html', role='branch', data-toggle='branch', data-value='HTML_Example') HTML Ajax Example
+                li: a.tree-toggle.closed(href='xmlexample.html', role='branch', data-toggle='branch', data-value='XML_Example') XML Ajax Example
+                li: a.tree-toggle.closed(href='jsonexample.html', role='branch', data-toggle='branch', data-value='JSON_Example') JSON Ajax Example
+        .accordion-group
+          .accordion-heading
+            a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseTwo')
+               | Collapsible Group Item #2
+          #collapseTwo.accordion-body.collapse
+            .accordion-inner.
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+              squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+              nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+              single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+              beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+              lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+              probably haven't heard of them accusamus labore sustainable VHS. 
+
+    #mainarea.span10.dropdown(style='background-color:green', data-toggle='context', data-target='#context-menu')
+      #context-menu
+        // Link or button to toggle dropdown
+        ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+          li: a(tabindex='-1', href='#') Action
+          li: a(tabindex='-1', href='#') Another action
+          li: a(tabindex='-1', href='#') Something else here
+          li.divider
+          li: a(tabindex='-1', href='#') Separated link
+
+      // Body content
+
+      .row-fluid
+        .span-12(ng-controller='GridCtrl')
+          div(ng-grid='gridOpts', style='height:300px')
+          form(ng-submit='addRow()')
+            input(type='text', ng-model='newCol1', placeholder='Col1 Value')
+            input(type='text', ng-model='newCol2', placeholder='Col2 Value')
+            input(type='text', ng-model='newCol3', placeholder='Col3 Value')
+            input.btn-primary(type='submit', value='Add')
+
+      .row-fluid
+        #bottom.span-12(style='border:solid 1px black; height:200px; background-color:white').
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+          squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+          nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
+          single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+          beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
+          lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+          probably haven't heard of them accusamus labore sustainable VHS.
+
+      #holder.row-fluid(style='background-color:cyan')
